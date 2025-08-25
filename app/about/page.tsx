@@ -52,10 +52,10 @@ export default function AboutPage() {
             <div>
               <h2 className="section-title">Our Mission</h2>
               <p className="text-gray-600 mb-6">
-                At Kabo Billiards, we're dedicated to providing the highest quality billiards equipment and game room solutions. Our mission is to enhance the gaming experience for both casual players and professionals alike.
+                At Kabo Billiards, we&apos;re dedicated to providing the highest quality billiards equipment and game room solutions. Our mission is to enhance the gaming experience for both casual players and professionals alike.
               </p>
               <p className="text-gray-600">
-                We believe that a well-designed game room is more than just a space for entertainment—it's a place where memories are made and skills are honed. That's why we're committed to delivering excellence in every product we offer.
+                We believe that a well-designed game room is more than just a space for entertainment—it&apos;s a place where memories are made and skills are honed. That&apos;s why we&apos;re committed to delivering excellence in every product we offer.
               </p>
             </div>
             <div className="relative h-[400px]">
@@ -105,7 +105,7 @@ export default function AboutPage() {
               </div>
               <h3 className="text-xl font-semibold mb-2">Customer Focus</h3>
               <p className="text-gray-600">
-                Your satisfaction is our priority. We're here to help you create the perfect gaming experience.
+                Your satisfaction is our priority. We&apos;re here to help you create the perfect gaming experience.
               </p>
             </div>
           </div>
