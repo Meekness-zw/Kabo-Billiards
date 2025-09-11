@@ -47,7 +47,7 @@ export default function ContactPage() {
       } else {
         throw new Error('Failed to send message');
       }
-    } catch (error) {
+    } catch {
       setSubmitStatus({
         type: 'error',
         message: 'Sorry, there was an error sending your message. Please try again or contact us directly.',
