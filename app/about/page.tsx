@@ -1,23 +1,91 @@
 import Image from 'next/image';
+import { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: "Kabo Billiards",
+  description: "Learn about Kabo Billiards, Zimbabwe's leading supplier of pool tables, snooker tables, and game room equipment. Meet our expert team led by Brian Kaboti.",
+  keywords: "about Kabo Billiards, Brian Kaboti, Maxine Kaboti, Maison Kaboti, billiards company Zimbabwe, pool table experts, game room specialists, billiards installation team",
+  openGraph: {
+    title: "About Kabo Billiards | Premium Game Room Solutions",
+    description: "Learn about Kabo Billiards, Zimbabwe's leading supplier of pool tables, snooker tables, and game room equipment.",
+    images: ["/images/modern game room with bar.jpg"],
+  },
+};
+
+// Function to render stylish person icons
+const PersonIcon = ({ type, className }: { type: string; className?: string }) => {
+  const baseClasses = `w-full h-full ${className || ''}`;
+  
+  switch (type) {
+    case 'ceo':
+      return (
+        <div className={`${baseClasses} bg-gradient-to-br from-[#000080] to-[#0000CD] flex items-center justify-center`}>
+          <svg className="w-20 h-20 text-white" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/>
+            <path d="M19 3h-1V1h-2v2H8V1H6v2H5C3.89 3 3 3.9 3 5v14c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z" opacity="0.3"/>
+          </svg>
+          <div className="absolute top-2 right-2">
+            <svg className="w-6 h-6 text-yellow-400" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+            </svg>
+          </div>
+        </div>
+      );
+    case 'designer':
+      return (
+        <div className={`${baseClasses} bg-gradient-to-br from-[#DC143C] to-[#B22222] flex items-center justify-center`}>
+          <svg className="w-20 h-20 text-white" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/>
+          </svg>
+          <div className="absolute top-2 right-2">
+            <svg className="w-6 h-6 text-yellow-400" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10c1.54 0 3-.35 4.31-.99l-3.76-3.76c-.55.22-1.15.35-1.76.35-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5c0 .61-.13 1.21-.35 1.76l3.76 3.76C21.65 15 22 13.54 22 12c0-5.52-4.48-10-10-10z"/>
+            </svg>
+          </div>
+        </div>
+      );
+    case 'technical':
+      return (
+        <div className={`${baseClasses} bg-gradient-to-br from-[#4A5568] to-[#2D3748] flex items-center justify-center`}>
+          <svg className="w-20 h-20 text-white" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/>
+          </svg>
+          <div className="absolute top-2 right-2">
+            <svg className="w-6 h-6 text-green-400" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M22.7 19l-9.1-9.1c.9-2.3.4-5-1.5-6.9-2-2-5-2.4-7.4-1.3L9 6 6 9 1.6 4.7C.4 7.1.9 10.1 2.9 12.1c1.9 1.9 4.6 2.4 6.9 1.5l9.1 9.1c.4.4 1 .4 1.4 0l2.3-2.3c.5-.4.5-1.1.1-1.4z"/>
+            </svg>
+          </div>
+        </div>
+      );
+    default:
+      return (
+        <div className={`${baseClasses} bg-gradient-to-br from-gray-400 to-gray-600 flex items-center justify-center`}>
+          <svg className="w-20 h-20 text-white" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/>
+          </svg>
+        </div>
+      );
+  }
+};
 
 const teamMembers = [
   {
-    name: 'John Smith',
+    name: 'Brian Kaboti',
     position: 'Founder & CEO',
-    image: '/images/pool table with bar.jpg',
-    bio: 'With over 20 years of experience in the billiards industry, John leads our company with passion and expertise.',
+    icon: 'ceo',
+    bio: 'With over 20 years of experience in the billiards industry, Brian leads our company with passion and expertise.',
   },
   {
-    name: 'Sarah Johnson',
-    position: 'Head of Design',
-    image: '/images/game room decor items.jpg',
-    bio: 'Sarah brings creativity and innovation to our game room designs, ensuring each project is unique and functional.',
+    name: 'Maxine Kaboti',
+    position: 'Designer',
+    icon: 'designer',
+    bio: 'Maxine brings creativity and innovation to our game room designs, ensuring each project is unique and functional.',
   },
   {
-    name: 'Michael Chen',
+    name: 'Maison Kaboti',
     position: 'Technical Director',
-    image: '/images/game room lighting fixtures.jpg',
-    bio: 'Michael oversees the technical aspects of our products, ensuring the highest quality standards.',
+    icon: 'technical',
+    bio: 'Maison oversees the technical aspects of our products, ensuring the highest quality standards.',
   },
 ];
 
@@ -119,13 +187,8 @@ export default function AboutPage() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {teamMembers.map((member, index) => (
               <div key={index} className="card">
-                <div className="relative h-64">
-                  <Image
-                    src={member.image}
-                    alt={member.name}
-                    fill
-                    className="object-cover"
-                  />
+                <div className="relative h-64 rounded-t-lg overflow-hidden">
+                  <PersonIcon type={member.icon} />
                 </div>
                 <div className="p-6">
                   <h3 className="text-xl font-semibold mb-1">{member.name}</h3>

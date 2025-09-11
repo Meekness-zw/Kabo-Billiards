@@ -1,6 +1,18 @@
 import React from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
+import { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: "Kabo Billiards",
+  description: "Discover premium pool tables, snooker tables, table tennis, and foosball tables at Kabo Billiards. Professional game room design and installation services in Harare, Zimbabwe.",
+  keywords: "pool tables, snooker tables, billiards, table tennis, foosball, game rooms, Brunswick pool tables, Butterfly table tennis, Tornado foosball, billiards equipment Zimbabwe, Harare game rooms",
+  openGraph: {
+    title: "Premium Pool Tables & Billiards Equipment | Kabo Billiards",
+    description: "Discover premium pool tables, snooker tables, table tennis, and foosball tables at Kabo Billiards Zimbabwe.",
+    images: ["/images/modern game room with bar.jpg"],
+  },
+};
 
 export default function Home() {
   return (
@@ -38,7 +50,7 @@ export default function Home() {
       </section>
 
       {/* Featured Products Section */}
-      <section className="py-16 px-4">
+      <section className="py-16 px-4 bg-white">
         <div className="max-w-7xl mx-auto">
           <h2 className="section-title text-center mb-12">Featured Products</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">

@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import Image from 'next/image';
 
 const Footer = () => {
   return (
@@ -7,7 +8,16 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           {/* Company Info */}
           <div className="space-y-4">
-            <h3 className="text-xl font-bold">KABO BILLIARDS</h3>
+            <div className="flex items-center space-x-3">
+              <Image
+                src="/images/Logo.png"
+                alt="Kabo Billiards Logo"
+                width={40}
+                height={40}
+                className="brightness-0 invert"
+              />
+              <h3 className="text-xl font-bold">KABO BILLIARDS</h3>
+            </div>
             <p className="text-gray-300">
               Your premier destination for quality billiards equipment and game room solutions.
             </p>
@@ -44,10 +54,10 @@ const Footer = () => {
           <div>
             <h4 className="text-lg font-semibold mb-4">Contact Us</h4>
             <ul className="space-y-2 text-gray-300">
-              <li>Email: info@kabobilliards.com</li>
-              <li>Phone: (555) 123-4567</li>
-              <li>Address: 123 Billiards Street</li>
-              <li>City, State 12345</li>
+              <li>Email: kabobilliards@gmail.com</li>
+              <li>Phone: +263 78 520 9400</li>
+              <li>Address: 8406 Stortford Road</li>
+              <li>Tywald Plots Harare Zimbabwe</li>
             </ul>
           </div>
 

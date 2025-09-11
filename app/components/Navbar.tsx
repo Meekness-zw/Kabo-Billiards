@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -23,8 +24,18 @@ const Navbar = () => {
         <div className="flex justify-between h-20">
           <div className="flex items-center">
             <Link href="/" className="flex-shrink-0 flex items-center">
-              <span className="text-2xl font-bold text-[#000080]">KABO</span>
-              <span className="text-2xl font-bold text-[#DC143C]">BILLIARDS</span>
+              <Image
+                src="/images/Logo.png"
+                alt="Kabo Billiards Logo"
+                width={60}
+                height={60}
+                className="mr-3"
+                priority
+              />
+              <div className="hidden sm:block">
+                <span className="text-2xl font-bold text-[#000080]">KABO</span>
+                <span className="text-2xl font-bold text-[#DC143C]">BILLIARDS</span>
+              </div>
             </Link>
           </div>
 

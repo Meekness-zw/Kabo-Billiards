@@ -1,5 +1,17 @@
 import React from 'react';
 import Image from 'next/image';
+import { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: "Kabo Billiards",
+  description: "Professional game room design and setup services in Zimbabwe. Custom billiards rooms, pool table installation, lighting, seating, and complete game room solutions.",
+  keywords: "game room design Zimbabwe, custom billiards rooms, pool table installation, game room lighting, billiards room setup, professional game rooms, game room furniture, billiards accessories, custom pool rooms Harare",
+  openGraph: {
+    title: "Game Room Design & Setup | Custom Billiards Rooms",
+    description: "Professional game room design and setup services in Zimbabwe. Custom billiards rooms and complete game room solutions.",
+    images: ["/images/modern game room with bar.jpg"],
+  },
+};
 import Link from 'next/link';
 
 const gameRoomDesigns = [
