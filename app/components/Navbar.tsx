@@ -9,11 +9,9 @@ const Navbar = () => {
 
   const menuItems = [
     { name: 'Home', path: '/' },
-    { name: 'Pool Tables', path: '/products/pool-tables' },
-    { name: 'Table Tennis', path: '/products/table-tennis' },
-    { name: 'Soccer Tables', path: '/products/soccer-tables' },
-    { name: 'Accessories', path: '/products/accessories' },
+    { name: 'Products', path: '/products' },
     { name: 'Game Rooms', path: '/game-rooms' },
+    { name: 'Blog', path: '/blog' },
     { name: 'About', path: '/about' },
     { name: 'Contact', path: '/contact' },
   ];

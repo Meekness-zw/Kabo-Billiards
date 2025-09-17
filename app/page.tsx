@@ -1,18 +1,9 @@
+'use client';
+
 import React from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
-import { Metadata } from 'next';
-
-export const metadata: Metadata = {
-  title: "Kabo Billiards",
-  description: "Discover premium pool tables, snooker tables, table tennis, and foosball tables at Kabo Billiards. Professional game room design and installation services in Harare, Zimbabwe.",
-  keywords: "pool tables, snooker tables, billiards, table tennis, foosball, game rooms, Brunswick pool tables, Butterfly table tennis, Tornado foosball, billiards equipment Zimbabwe, Harare game rooms",
-  openGraph: {
-    title: "Premium Pool Tables & Billiards Equipment | Kabo Billiards",
-    description: "Discover premium pool tables, snooker tables, table tennis, and foosball tables at Kabo Billiards Zimbabwe.",
-    images: ["/images/modern game room with bar.jpg"],
-  },
-};
+import { Article } from '@/lib/data';
 
 export default function Home() {
   return (
@@ -103,8 +94,19 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Game Room Design Section */}
+      {/* Latest Articles Section */}
       <section className="py-16 px-4 bg-gray-50">
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-12">
+            <h2 className="section-title">Latest Articles</h2>
+            <p className="text-gray-600 mt-4">Stay updated with the latest news and insights from Kabo Billiards</p>
+          </div>
+          <LatestArticles />
+        </div>
+      </section>
+
+      {/* Game Room Design Section */}
+      <section className="py-16 px-4 bg-white">
         <div className="max-w-7xl mx-auto">
           <h2 className="section-title text-center mb-12">Game Room Design</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
@@ -141,6 +143,93 @@ export default function Home() {
           </div>
         </div>
       </section>
+    </div>
+  );
+}
+
+// Latest Articles Component
+function LatestArticles() {
+  const [articles, setArticles] = React.useState<Article[]>([]);
+  const [loading, setLoading] = React.useState(true);
+
+  React.useEffect(() => {
+    const fetchArticles = async () => {
+      try {
+        const response = await fetch('/api/articles');
+        if (response.ok) {
+          const data = await response.json();
+          setArticles(data.slice(0, 3)); // Show only latest 3 articles
+        }
+      } catch (error) {
+        console.error('Error fetching articles:', error);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchArticles();
+  }, []);
+
+  if (loading) {
+    return (
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        {[1, 2, 3].map((i) => (
+          <div key={i} className="card p-6 animate-pulse">
+            <div className="h-48 bg-gray-200 rounded-lg mb-4"></div>
+            <div className="h-4 bg-gray-200 rounded mb-2"></div>
+            <div className="h-4 bg-gray-200 rounded w-3/4"></div>
+          </div>
+        ))}
+      </div>
+    );
+  }
+
+  if (articles.length === 0) {
+    return (
+      <div className="text-center py-12">
+        <div className="text-4xl mb-4">📝</div>
+        <p className="text-gray-600">No articles available yet. Check back soon!</p>
+      </div>
+    );
+  }
+
+  return (
+    <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+      {articles.map((article) => (
+        <article key={article.id} className="card p-6 hover:shadow-lg transition-shadow">
+          {article.image && (
+            <div className="h-48 relative mb-4">
+              <Image
+                src={article.image}
+                alt={article.title}
+                fill
+                className="object-cover rounded-lg"
+              />
+            </div>
+          )}
+          <div className="text-sm text-gray-500 mb-2">
+            {new Date(article.createdAt).toLocaleDateString()}
+          </div>
+          <h3 className="text-xl font-semibold mb-3 line-clamp-2">{article.title}</h3>
+          <p className="text-gray-600 mb-4 line-clamp-3">{article.excerpt}</p>
+          <Link
+            href={`/blog/${article.id}`}
+            className="inline-flex items-center text-blue-600 hover:text-blue-800 font-medium"
+          >
+            Read More
+            <svg className="ml-1 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+            </svg>
+          </Link>
+        </article>
+      ))}
+      {articles.length > 0 && (
+        <div className="md:col-span-3 text-center mt-8">
+          <Link href="/blog" className="btn-primary">
+            View All Articles
+          </Link>
+        </div>
+      )}
     </div>
   );
 }

@@ -1,60 +1,23 @@
+'use client';
+
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
+import Chatbot from "./components/Chatbot";
+import { usePathname } from 'next/navigation';
 
 const inter = Inter({ subsets: ["latin"] });
-
-export const metadata: Metadata = {
-  metadataBase: new URL('https://kabobilliards.com'),
-  title: "Kabo Billiards",
-  description: "Premium billiards equipment supplier in Zimbabwe. Pool tables, snooker tables, table tennis, foosball tables, game room design & accessories. Professional installation & service.",
-  keywords: "pool tables Zimbabwe, snooker tables, billiards equipment, table tennis, foosball tables, game rooms, billiards accessories, pool table installation, snooker table repair, game room design, Brunswick pool tables, Butterfly table tennis, Tornado foosball, billiards supplies, cue sticks, pool balls, game room furniture, professional billiards, tournament tables, Harare billiards, Zimbabwe game rooms",
-  authors: [{ name: "Kabo Billiards" }],
-  creator: "Kabo Billiards",
-  publisher: "Kabo Billiards",
-  robots: "index, follow",
-  openGraph: {
-    type: "website",
-    locale: "en_US",
-    url: "https://kabobilliards.com",
-    siteName: "Kabo Billiards",
-    title: "Kabo Billiards - Premium Pool Tables & Game Room Solutions",
-    description: "Zimbabwe's premier destination for pool tables, snooker tables, table tennis, and complete game room solutions. Professional installation & service.",
-    images: [
-      {
-        url: "/images/modern game room with bar.jpg",
-        width: 1200,
-        height: 630,
-        alt: "Kabo Billiards - Premium Game Room Solutions",
-      },
-    ],
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "Kabo Billiards - Premium Pool Tables & Game Room Solutions",
-    description: "Zimbabwe's premier destination for pool tables, snooker tables, table tennis, and complete game room solutions.",
-    images: ["/images/modern game room with bar.jpg"],
-  },
-  alternates: {
-    canonical: "https://kabobilliards.com",
-  },
-  other: {
-    "geo.region": "ZW",
-    "geo.placename": "Harare",
-    "geo.position": "-17.8292;31.0522",
-    "ICBM": "-17.8292, 31.0522",
-  },
-};
-
-export const viewport = "width=device-width, initial-scale=1";
 
 export default function RootLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
+  const pathname = usePathname();
+  const isAdminRoute = pathname?.startsWith('/admin');
+
   return (
     <html lang="en">
       <head>
@@ -179,11 +142,12 @@ export default function RootLayout({
         />
       </head>
       <body className={inter.className} suppressHydrationWarning={true}>
-        <Navbar />
-        <main className="min-h-screen pt-20">
+        {!isAdminRoute && <Navbar />}
+        <main className={isAdminRoute ? "min-h-screen" : "min-h-screen pt-20"}>
           {children}
         </main>
-        <Footer />
+        {!isAdminRoute && <Footer />}
+        {!isAdminRoute && <Chatbot />}
       </body>
     </html>
   );
