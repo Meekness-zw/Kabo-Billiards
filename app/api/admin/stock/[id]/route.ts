@@ -8,13 +8,14 @@ async function verifyAdmin(request: NextRequest) {
   return verifyToken(token) !== null;
 }
 
-export async function GET(request: NextRequest, { params }: { params: { id: string } }) {
+export async function GET(request: NextRequest, { params }: { params: Promise<{ id: string }> }) {
   if (!(await verifyAdmin(request))) {
     return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
   }
 
   try {
-    const stockItem = await getStockItem(params.id);
+    const { id } = await params;
+    const stockItem = await getStockItem(id);
     if (!stockItem) {
       return NextResponse.json({ error: 'Stock item not found' }, { status: 404 });
     }
@@ -25,14 +26,15 @@ export async function GET(request: NextRequest, { params }: { params: { id: stri
   }
 }
 
-export async function PUT(request: NextRequest, { params }: { params: { id: string } }) {
+export async function PUT(request: NextRequest, { params }: { params: Promise<{ id: string }> }) {
   if (!(await verifyAdmin(request))) {
     return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
   }
 
   try {
+    const { id } = await params;
     const updates = await request.json();
-    const stockItem = await updateStockItem(params.id, updates);
+    const stockItem = await updateStockItem(id, updates);
     if (!stockItem) {
       return NextResponse.json({ error: 'Stock item not found' }, { status: 404 });
     }
@@ -43,13 +45,14 @@ export async function PUT(request: NextRequest, { params }: { params: { id: stri
   }
 }
 
-export async function DELETE(request: NextRequest, { params }: { params: { id: string } }) {
+export async function DELETE(request: NextRequest, { params }: { params: Promise<{ id: string }> }) {
   if (!(await verifyAdmin(request))) {
     return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
   }
 
   try {
-    const deleted = await deleteStockItem(params.id);
+    const { id } = await params;
+    const deleted = await deleteStockItem(id);
     if (!deleted) {
       return NextResponse.json({ error: 'Stock item not found' }, { status: 404 });
     }

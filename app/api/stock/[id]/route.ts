@@ -1,9 +1,10 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { getStockItem } from '@/lib/data';
 
-export async function GET(request: NextRequest, { params }: { params: { id: string } }) {
+export async function GET(request: NextRequest, { params }: { params: Promise<{ id: string }> }) {
   try {
-    const stockItem = await getStockItem(params.id);
+    const { id } = await params;
+    const stockItem = await getStockItem(id);
     
     if (!stockItem) {
       return NextResponse.json({ error: 'Stock item not found' }, { status: 404 });

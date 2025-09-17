@@ -8,13 +8,14 @@ async function verifyAdmin(request: NextRequest) {
   return verifyToken(token) !== null;
 }
 
-export async function GET(request: NextRequest, { params }: { params: { id: string } }) {
+export async function GET(request: NextRequest, { params }: { params: Promise<{ id: string }> }) {
   if (!(await verifyAdmin(request))) {
     return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
   }
 
   try {
-    const article = await getArticle(params.id);
+    const { id } = await params;
+    const article = await getArticle(id);
     if (!article) {
       return NextResponse.json({ error: 'Article not found' }, { status: 404 });
     }
@@ -25,14 +26,15 @@ export async function GET(request: NextRequest, { params }: { params: { id: stri
   }
 }
 
-export async function PUT(request: NextRequest, { params }: { params: { id: string } }) {
+export async function PUT(request: NextRequest, { params }: { params: Promise<{ id: string }> }) {
   if (!(await verifyAdmin(request))) {
     return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
   }
 
   try {
+    const { id } = await params;
     const updates = await request.json();
-    const article = await updateArticle(params.id, updates);
+    const article = await updateArticle(id, updates);
     if (!article) {
       return NextResponse.json({ error: 'Article not found' }, { status: 404 });
     }
@@ -43,13 +45,14 @@ export async function PUT(request: NextRequest, { params }: { params: { id: stri
   }
 }
 
-export async function DELETE(request: NextRequest, { params }: { params: { id: string } }) {
+export async function DELETE(request: NextRequest, { params }: { params: Promise<{ id: string }> }) {
   if (!(await verifyAdmin(request))) {
     return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
   }
 
   try {
-    const deleted = await deleteArticle(params.id);
+    const { id } = await params;
+    const deleted = await deleteArticle(id);
     if (!deleted) {
       return NextResponse.json({ error: 'Article not found' }, { status: 404 });
     }

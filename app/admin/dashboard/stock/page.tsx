@@ -38,7 +38,7 @@ export default function StockPage() {
       });
 
       if (response.ok) {
-        setStockItems(stockItems.filter(item => item.id !== id));
+        setStock(stock.filter(item => item.id !== id));
       } else {
         alert('Failed to delete stock item');
       }
@@ -59,7 +59,7 @@ export default function StockPage() {
 
       if (response.ok) {
         const updatedItem = await response.json();
-        setStockItems(stockItems.map(item => 
+        setStock(stock.map(item => 
           item.id === id ? updatedItem : item
         ));
       } else {
