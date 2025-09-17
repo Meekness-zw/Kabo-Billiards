@@ -1,0 +1,21 @@
+{
+  "name": "Kabo Billiards - The Game Haven",
+  "short_name": "Kabo Billiards",
+  "description": "Premium billiards equipment supplier in Zimbabwe. Pool tables, snooker tables, table tennis, foosball tables, game room design & accessories.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#16a34a",
+  "icons": [
+    {
+      "src": "/icon.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    },
+    {
+      "src": "/apple-touch-icon.png",
+      "sizes": "180x180",
+      "type": "image/png"
+    }
+  ]
+}

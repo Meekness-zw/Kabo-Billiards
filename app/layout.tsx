@@ -20,6 +20,13 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
+        <title>Kabo Billiards - The Game Haven</title>
+        <meta name="description" content="Premium billiards equipment supplier in Zimbabwe. Pool tables, snooker tables, table tennis, foosball tables, game room design & accessories." />
+        <link rel="icon" href="/favicon.ico" sizes="any" />
+        <link rel="icon" href="/icon.png" type="image/png" />
+        <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+        <link rel="manifest" href="/manifest.json" />
+        <meta name="theme-color" content="#16a34a" />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
