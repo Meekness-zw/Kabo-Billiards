@@ -91,7 +91,7 @@ export default function ContactPage() {
                   </svg>
                   <div>
                     <h3 className="font-semibold">Phone</h3>
-                    <p className="text-gray-600">+263 78 520 9400</p>
+                    <p className="text-gray-600">+263 77 851 9223</p>
                   </div>
                 </div>
                 <div className="flex items-start space-x-4">

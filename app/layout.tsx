@@ -36,7 +36,7 @@ export default function RootLayout({
               "name": "Kabo Billiards",
               "description": "Premium billiards equipment supplier in Zimbabwe. Pool tables, snooker tables, table tennis, foosball tables, game room design & accessories.",
               "url": "https://kabobilliards.com",
-              "telephone": "+263 78 520 9400",
+              "telephone": "+263 77 851 9223",
               "email": "kabobilliards@gmail.com",
               "address": {
                 "@type": "PostalAddress",

@@ -18,7 +18,7 @@ const knowledgeBase = {
     name: "Kabo Billiards",
     location: "Harare, Zimbabwe",
     address: "8406 Stortford Road, Tywald Plots, Harare",
-    phone: "+263 78 520 9400",
+    phone: "+263 77 851 9223",
     email: "kabobilliards@gmail.com",
     hours: "Monday-Friday: 9:00-18:00, Saturday: 10:00-16:00",
     founder: "Brian Kaboti",
@@ -153,7 +153,7 @@ export function generateChatbotResponse(userMessage: string): ChatbotResponse {
   // Prices
   if (intents.prices.test(message)) {
     return {
-      message: "Our prices vary depending on the specific product, size, and features you choose. We offer competitive pricing on all our equipment. For detailed pricing information, please contact us at +263 78 520 9400 or kabobilliards@gmail.com. We'd be happy to provide a personalized quote based on your needs.",
+      message: "Our prices vary depending on the specific product, size, and features you choose. We offer competitive pricing on all our equipment. For detailed pricing information, please contact us at +263 77 851 9223 or kabobilliards@gmail.com. We'd be happy to provide a personalized quote based on your needs.",
       suggestions: ["Contact us", "View products", "Installation costs"]
     };
   }
@@ -239,7 +239,7 @@ export function generateChatbotResponse(userMessage: string): ChatbotResponse {
   // Goodbye
   if (intents.goodbye.test(message)) {
     return {
-      message: "Thank you for chatting with Kabo Billiards! Feel free to contact us anytime at +263 78 520 9400 or visit us at 8406 Stortford Road, Harare. We look forward to helping you create the perfect game room!",
+      message: "Thank you for chatting with Kabo Billiards! Feel free to contact us anytime at +263 77 851 9223 or visit us at 8406 Stortford Road, Harare. We look forward to helping you create the perfect game room!",
       suggestions: ["Contact information", "Visit our showroom", "Browse products"]
     };
   }

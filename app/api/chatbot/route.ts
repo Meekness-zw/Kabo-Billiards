@@ -27,7 +27,7 @@ export async function POST(request: NextRequest) {
     return NextResponse.json(
       { 
         error: 'Failed to process message',
-        response: "I'm sorry, I'm having trouble processing your message right now. Please try again or contact us directly at +263 78 520 9400."
+        response: "I'm sorry, I'm having trouble processing your message right now. Please try again or contact us directly at +263 77 851 9223."
       },
       { status: 500 }
     );

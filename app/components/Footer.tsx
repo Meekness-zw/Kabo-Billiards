@@ -55,7 +55,7 @@ const Footer = () => {
             <h4 className="text-lg font-semibold mb-4">Contact Us</h4>
             <ul className="space-y-2 text-gray-300">
               <li>Email: kabobilliards@gmail.com</li>
-              <li>Phone: +263 78 520 9400</li>
+              <li>Phone: +263 77 851 9223</li>
               <li>Address: 8406 Stortford Road</li>
               <li>Tywald Plots Harare Zimbabwe</li>
             </ul>
