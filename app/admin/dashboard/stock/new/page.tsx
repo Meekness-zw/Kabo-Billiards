@@ -44,7 +44,7 @@ export default function NewStockPage() {
         const data = await response.json();
         setError(data.error || 'Failed to create stock item');
       }
-    } catch (error) {
+    } catch {
       setError('Network error. Please try again.');
     } finally {
       setLoading(false);

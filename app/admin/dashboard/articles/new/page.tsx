@@ -35,7 +35,7 @@ export default function NewArticlePage() {
         const data = await response.json();
         setError(data.error || 'Failed to create article');
       }
-    } catch (error) {
+    } catch {
       setError('Network error. Please try again.');
     } finally {
       setLoading(false);

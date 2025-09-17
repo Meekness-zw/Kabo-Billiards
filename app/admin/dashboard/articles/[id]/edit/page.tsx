@@ -34,7 +34,7 @@ export default function EditArticlePage() {
         } else {
           setError('Article not found');
         }
-      } catch (error) {
+      } catch {
         setError('Failed to load article');
       } finally {
         setLoading(false);
@@ -66,7 +66,7 @@ export default function EditArticlePage() {
         const data = await response.json();
         setError(data.error || 'Failed to update article');
       }
-    } catch (error) {
+    } catch {
       setError('Network error. Please try again.');
     } finally {
       setSaving(false);

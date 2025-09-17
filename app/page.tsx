@@ -160,8 +160,8 @@ function LatestArticles() {
           const data = await response.json();
           setArticles(data.slice(0, 3)); // Show only latest 3 articles
         }
-      } catch (error) {
-        console.error('Error fetching articles:', error);
+      } catch {
+        console.error('Error fetching articles');
       } finally {
         setLoading(false);
       }

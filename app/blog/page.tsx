@@ -20,7 +20,7 @@ export default function BlogPage() {
         } else {
           setError('Failed to load articles');
         }
-      } catch (error) {
+      } catch {
         setError('Network error');
       } finally {
         setLoading(false);

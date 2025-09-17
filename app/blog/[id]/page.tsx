@@ -22,7 +22,7 @@ export default function ArticlePage() {
         } else {
           setError('Article not found');
         }
-      } catch (error) {
+      } catch {
         setError('Failed to load article');
       } finally {
         setLoading(false);

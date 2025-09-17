@@ -42,7 +42,7 @@ export default function EditStockPage() {
         } else {
           setError('Stock item not found');
         }
-      } catch (error) {
+      } catch {
         setError('Failed to load stock item');
       } finally {
         setLoading(false);
@@ -79,7 +79,7 @@ export default function EditStockPage() {
         const data = await response.json();
         setError(data.error || 'Failed to update stock item');
       }
-    } catch (error) {
+    } catch {
       setError('Network error. Please try again.');
     } finally {
       setSaving(false);

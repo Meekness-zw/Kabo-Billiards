@@ -22,7 +22,7 @@ export default function StockPage() {
       } else {
         setError('Failed to fetch stock');
       }
-    } catch (error) {
+    } catch {
       setError('Network error');
     } finally {
       setLoading(false);
@@ -38,11 +38,11 @@ export default function StockPage() {
       });
 
       if (response.ok) {
-        setStock(stock.filter(item => item.id !== id));
+        setStockItems(stockItems.filter(item => item.id !== id));
       } else {
         alert('Failed to delete stock item');
       }
-    } catch (error) {
+    } catch {
       alert('Network error');
     }
   };
@@ -59,13 +59,13 @@ export default function StockPage() {
 
       if (response.ok) {
         const updatedItem = await response.json();
-        setStock(stock.map(item => 
+        setStockItems(stockItems.map(item => 
           item.id === id ? updatedItem : item
         ));
       } else {
         alert('Failed to update stock item');
       }
-    } catch (error) {
+    } catch {
       alert('Network error');
     }
   };

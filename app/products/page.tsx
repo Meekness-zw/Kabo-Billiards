@@ -44,8 +44,8 @@ export default function ProductsPage() {
           const data = await response.json();
           setStockItems(data);
         }
-      } catch (error) {
-        console.error('Error fetching stock:', error);
+      } catch {
+        console.error('Error fetching stock');
       } finally {
         setLoading(false);
       }

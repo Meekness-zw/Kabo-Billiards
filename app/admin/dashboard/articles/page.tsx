@@ -22,7 +22,7 @@ export default function ArticlesPage() {
       } else {
         setError('Failed to fetch articles');
       }
-    } catch (error) {
+    } catch {
       setError('Network error');
     } finally {
       setLoading(false);
@@ -42,7 +42,7 @@ export default function ArticlesPage() {
       } else {
         alert('Failed to delete article');
       }
-    } catch (error) {
+    } catch {
       alert('Network error');
     }
   };
@@ -65,7 +65,7 @@ export default function ArticlesPage() {
       } else {
         alert('Failed to update article');
       }
-    } catch (error) {
+    } catch {
       alert('Network error');
     }
   };

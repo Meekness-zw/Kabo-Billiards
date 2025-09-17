@@ -33,9 +33,9 @@ export default function AdminDashboard() {
 
           setStats({
             totalArticles: articles.length,
-            publishedArticles: articles.filter((a: any) => a.published).length,
+            publishedArticles: articles.filter((a: { published: boolean }) => a.published).length,
             totalStock: stock.length,
-            inStockItems: stock.filter((s: any) => s.inStock).length,
+            inStockItems: stock.filter((s: { inStock: boolean }) => s.inStock).length,
           });
         }
       } catch (error) {
